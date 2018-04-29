@@ -1,7 +1,7 @@
 const axios = require('axios')
 const TelegramBot = require('node-telegram-bot-api')
 
-const { TOKEN} = require('./token')
+const { TOKEN, GITHUB_USER, GITHUB_PASSWORD } = require('./token')
 
 const USER = 'toxblh'
 const REPO = 'MTMR'
@@ -32,6 +32,24 @@ bot.onText(/\/stats/, msg => {
         output += `Forks: ${data.forks_count}\n`
         output += `Issues: ${data.open_issues_count}\n`
         output += `Watches: ${data.subscribers_count}\n`
+        bot.sendMessage(userId, output)
+    })
+})
+
+bot.onText(/\/traffic/, msg => {
+    const userId = msg.chat.id
+    let output = ''
+
+    axios({
+       url: `https://api.github.com/repos/${USER}/${REPO}/traffic/popular/referrers`,
+       auth: {
+        username: GITHUB_USER,
+        password: GITHUB_PASSWORD
+      },
+    }).then(({ data }) => {
+        data.map(item => {
+            output += `${item.referrer}: ${item.count} (${item.uniques})\n`
+        })
         bot.sendMessage(userId, output)
     })
 })
