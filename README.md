@@ -1,9 +1,9 @@
 # Small bot for get few statistics from github
 
 ### Commands:
-`/downloads` - return amount downloads latest release and total
-`/stats` - return stars, folowers, forks and issues
-`/traffic` - return statistic about traffic to the repo
+- `/downloads` - return amount downloads latest release and total
+- `/stats` - return stars, folowers, forks and issues
+- `/traffic` - return statistic about traffic to the repo
 
 ### PS: For work need create a file in root 'token.js' with content
 ```js
