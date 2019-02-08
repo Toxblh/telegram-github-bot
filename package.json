@@ -10,8 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
-    "jest": "^23.6.0",
-    "randomatic": "^3.0.0",
-    "cryptiles": "^4.1.2"
+    "jest": "^24.1.0",
+    "randomatic": "^3.1.1",
+    "cryptiles": "^4.1.3"
   }
 }
